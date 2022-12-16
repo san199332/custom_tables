@@ -40,7 +40,7 @@ module CustomTables
       self.class.column_names - self.journalized_options[:non_journalized_columns]
     end
 
-    def notified_users
+    def notified_mentions
       if project
         project.notified_users.reject {|user| !visible?(user)}
       else
