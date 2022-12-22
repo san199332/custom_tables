@@ -13,7 +13,6 @@ module CustomTables
 
       module InstanceMethods
         def format_object_with_customtables(object, html=true, &block)
-           object_without = format_object_without_customtables(object, html=true, &block)
            if block_given?
              object = yield object
            end
@@ -33,7 +32,7 @@ module CustomTables
                object.value.to_s
              end
            else
-             html ? h(object_without) : object.to_s
+             html ? h(format_object_without_customtables(object, html=true, &block)) : format_object_without_customtables(object, html=false, &block).to_s
            end
         end
       end
