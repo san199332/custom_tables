@@ -14,7 +14,7 @@ class CustomTablesController < ApplicationController
   helper :custom_tables_pdf
 
   before_action :find_custom_table, only: [:edit, :update, :show, :destroy, :setting_tabs]
-  before_action :authorize_global
+  before_action :authorize_global, only: [:edit]
   before_action :find_custom_tables, only: [:context_menu]
   before_action :setting_tabs, only: :edit
   before_action :export_custom_entities, only: :show
